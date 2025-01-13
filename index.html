@@ -8,36 +8,35 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 30px;
         }
         h1 {
-            color: #007BFF;
+            color: #007bff;
         }
         p {
             color: #333;
         }
         .buttons-container {
             display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between buttons */
+            justify-content: space-between; /* Buttons को left, center, और right पर रखता है */
+            align-items: center;
             margin-top: 20px;
-        }
-        button, input[type="text"] {
-            padding: 10px 15px;
-            font-size: 18px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            padding: 0 10%; /* Left और Right space maintain करने के लिए */
         }
         button {
+            padding: 15px 30px;
+            font-size: 20px;
             cursor: pointer;
+            border-radius: 8px;
             background-color: #28a745;
             color: white;
             border: none;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
         }
         button:hover {
             background-color: #218838;
+            transform: scale(1.05);
         }
         .contact-section {
             margin-top: 30px;
@@ -52,6 +51,7 @@
             text-decoration: none;
             color: #007BFF;
             font-weight: bold;
+            font-size: 18px;
         }
         a:hover {
             text-decoration: underline;
@@ -63,16 +63,16 @@
     <p>THIS IS AN EDUCATIONAL Website</p>
     <p>Here PLEASE SELECT A category TO explore more:</p>
 
+    <!-- Buttons -->
     <div class="buttons-container">
-        <button onclick="window.location.href='books_and_author.html';">BOOKS & Authors</button>
+        <button onclick="window.location.href='books_and_author.html';">Books & Authors</button>
+        <button onclick="window.location.href='BIKES^SCOOTY.html';">Bikes & Scooty</button>
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
-    <a href="BIKES^SCOOTY.HTML">Bikes & Scooty</a>
-
 
     <!-- Search Bar -->
     <div style="margin-top: 20px;">
-        <input type="text" id="searchInput" placeholder="Search here...">
+        <input type="text" id="searchInput" placeholder="Search here..." style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
         <button onclick="searchFiles()">Search</button>
     </div>
 
@@ -88,7 +88,7 @@
             const files = {
                 "books_and_author": ["author", "book", "novel", "poetry"], // Keywords related to books_and_author.html
                 "CAR&MAKERS": ["car", "maker", "vehicle", "engine"], // Keywords related to CAR&MAKERS.html
-                "another_file": ["keyword1", "keyword2", "keyword3"] // Add another file and its keywords
+                "BIKES^SCOOTY": ["bike", "scooty", "ride", "wheels"] // Keywords for BIKES^SCOOTY.html
             };
 
             let found = false;
