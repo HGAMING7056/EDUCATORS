@@ -29,7 +29,8 @@
 </head>
 <body>
     <h1>Books & Authors</h1>
-
+    <button class="back-button" onclick="window.location.href='index.html';">⬅ Back to Home</button>
+    
     <div class="author">George R.R. Martin</div>
     <ul class="books">
         <li>A Game of Thrones</li>
@@ -75,6 +76,30 @@
         <li>The Mysterious Affair at Styles</li>
     </ul>
 
-    <button onclick="window.location.href='index.html';">Back to Home</button>
+    <script>
+        function searchFiles() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const files = {
+                "books_and_author": ["author", "book", "novel", "poetry"], // Keywords related to books_and_author.html
+                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"], // Keywords related to CAR&MAKERS.html
+                "another_file": ["keyword1", "keyword2", "keyword3"] // Add another file and its keywords
+            };
+
+            let found = false;
+            for (const [file, keywords] of Object.entries(files)) {
+                if (keywords.includes(query)) {
+                    window.location.href = `${file}.html`;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Sorry, not found!");
+            }
+        }
+    </script>
 </body>
 </html>
+
+
