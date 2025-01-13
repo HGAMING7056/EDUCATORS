@@ -21,19 +21,28 @@
             font-size: 16px;
             cursor: pointer;
             margin: 10px;
-        }
-        .left-button {
-            position: fixed;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            font-size: 20px;
-            padding: 20px 40px;
             background-color: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            position: relative;
+            top: -20px; /* 1 inch approx */
+        }
+        .left-button {
+            position: fixed;
+            top: 40%; /* Adjusted 1 inch up */
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            padding: 20px 40px;
+        }
+        .cars-button {
+            position: fixed;
+            top: 40%; /* Adjusted 1 inch up */
+            left: 160px; /* Shifted slightly right */
+            transform: translateY(-50%);
+            font-size: 20px;
+            padding: 20px 40px;
         }
         .contact-section {
             margin-top: 30px;
