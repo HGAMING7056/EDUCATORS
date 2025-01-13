@@ -16,33 +16,28 @@
         p {
             color: #333;
         }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+            margin-top: 20px;
+        }
+        button, input[type="text"] {
+            padding: 10px 15px;
+            font-size: 18px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
             cursor: pointer;
-            margin: 10px;
             background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 5px;
-            position: relative;
-            top: -20px; /* 1 inch approx */
+            transition: all 0.3s ease;
         }
-        .left-button {
-            position: fixed;
-            top: 40%; /* Adjusted 1 inch up */
-            left: 10px;
-            transform: translateY(-50%);
-            font-size: 20px;
-            padding: 20px 40px;
-        }
-        .cars-button {
-            position: fixed;
-            top: 40%; /* Adjusted 1 inch up */
-            left: 160px; /* Shifted slightly right */
-            transform: translateY(-50%);
-            font-size: 20px;
-            padding: 20px 40px;
+        button:hover {
+            background-color: #218838;
         }
         .contact-section {
             margin-top: 30px;
@@ -53,35 +48,60 @@
         .contact-section h2 {
             color: #28a745;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        .author {
+        a {
+            text-decoration: none;
+            color: #007BFF;
             font-weight: bold;
-            color: #333333;
-            font-size: 24px;
-            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1>Hemlo! Welcome to My Website</h1>
-    <p>THIS IS A EDUCATIONAL Website </p>
-    
+    <p>THIS IS AN EDUCATIONAL Website</p>
     <p>Here PLEASE SELECT A category TO explore more:</p>
 
+    <div class="buttons-container">
+        <button onclick="window.location.href='books_and_author.html';">BOOKS & Authors</button>
+        <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div style="margin-top: 20px;">
+        <input type="text" id="searchInput" placeholder="Search here...">
+        <button onclick="searchFiles()">Search</button>
+    </div>
+
     <div class="contact-section">
-        <h2>Contact Me for Helping ME TO MAKE more like this </h2>
-        <p>If you have any questions or want to add somethings in this project, feel free to reach out!</p>
+        <h2>Contact Me for Helping ME TO MAKE more like this</h2>
+        <p>If you have any questions or want to add something to this project, feel free to reach out!</p>
         <p>Email me at: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
     </div>
-    <button class="cars-button" onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
-    
-    <button class="left-button" onclick="window.location.href='books_and_author.html';">BOOKS & Authors</button>
+
+    <script>
+        function searchFiles() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const files = {
+                "books_and_author": ["author", "book", "novel", "poetry"], // Keywords related to books_and_author.html
+                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"], // Keywords related to CAR&MAKERS.html
+                "another_file": ["keyword1", "keyword2", "keyword3"] // Add another file and its keywords
+            };
+
+            let found = false;
+            for (const [file, keywords] of Object.entries(files)) {
+                if (keywords.includes(query)) {
+                    window.location.href = `${file}.html`;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Sorry, not found!");
+            }
+        }
+    </script>
 </body>
 </html>
