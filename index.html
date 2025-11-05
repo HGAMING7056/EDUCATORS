@@ -61,14 +61,14 @@
 </head>
 <body>
     <h1>Hello! Welcome to My Website</h1>
-    <p>THIS IS AN EDUCATIONAL Website</p>
+    <p>This is an Educational Website</p>
     <p>Here PLEASE SELECT A category TO explore more:</p>
 
     <!-- Buttons -->
     <div class="buttons-container">
         <button onclick="window.location.href='books_and_author.html';">Books & Authors</button>
-        <button onclick="window.location.href='BIKES^SCOOTY.html';">Bikes & Scooty</button> <!-- फाइल का सही नाम -->
-        <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button> <!-- फाइल का सही नाम -->
+        <button onclick="window.location.href='BIKES^SCOOTY.html';">Bikes & Scooty</button>
+      <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
     <!-- Search Bar -->
@@ -88,8 +88,8 @@
             const query = document.getElementById("searchInput").value.toLowerCase();
             const files = {
                 "books_and_author": ["author", "book", "novel", "poetry"],
-                "CAR_MAKERS": ["car", "maker", "vehicle", "engine"],
-                "BIKES_SCOOTY": ["bike", "scooty", "ride", "wheels"]
+                "CAR_MAKERS": ["car", "maker", "vehicle", "engine", "4"],
+                "BIKES^SCOOTY": ["bike", "scooty", "ride", "two wheeler"]
             };
 
             let found = false;
@@ -108,3 +108,4 @@
     </script>
 </body>
 </html>
+
