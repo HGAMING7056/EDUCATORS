@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website </title>
+    <title>My First Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,10 +18,10 @@
         }
         .buttons-container {
             display: flex;
-            justify-content: space-between; /* Buttons को left, center, और right पर रखता है */
+            justify-content: space-between;
             align-items: center;
             margin-top: 20px;
-            padding: 0 10%; /* Left और Right space maintain करने के लिए */
+            padding: 0 10%;
         }
         button {
             padding: 15px 30px;
@@ -72,13 +72,34 @@
 
     <!-- Search Bar -->
     <div style="margin-top: 20px;">
-        <input type="text" id="searchInput" placeholder="Search here..." style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+        <input type="text" id="searchInput" placeholder="Search here..." 
+            style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
         <button onclick="searchFiles()">Search</button>
     </div>
 
+    <!-- YouTube Button -->
+    <div style="margin-top: 25px;">
+        <button 
+        onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';" 
+        style="
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            background-color: red;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        ">
+        📺 Visit My YouTube Channel
+        </button>
+    </div>
+
+    <!-- Contact Section -->
     <div class="contact-section">
         <h2>Contact Me for Helping ME TO MAKE more like this</h2>
-        <p>If you have any questions or want to add something to this Website or page , feel free to reach out!</p>
+        <p>If you have any questions or want to add something to this Website or page, feel free to reach out!</p>
         <p>Email me at: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
     </div>
 
@@ -86,9 +107,9 @@
         function searchFiles() {
             const query = document.getElementById("searchInput").value.toLowerCase();
             const files = {
-                "books_and_author": ["author", "book", "novel", "poetry"], // Keywords related to books_and_author.html
-                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"], // Keywords related to CAR&MAKERS.html
-                "BIKES^SCOOTY": ["bike", "scooty", "ride", "wheels"] // Keywords for BIKES^SCOOTY.html
+                "books_and_author": ["author", "book", "novel", "poetry"],
+                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"],
+                "BIKES^SCOOTY": ["bike", "scooty", "ride", "wheels"]
             };
 
             let found = false;
@@ -107,4 +128,3 @@
     </script>
 </body>
 </html>
-
