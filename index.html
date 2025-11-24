@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Website</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 30px;
         }
+
         h1 {
             color: #007bff;
         }
+
         p {
             color: #333;
         }
+
         .buttons-container {
             display: flex;
             justify-content: space-between;
@@ -23,42 +27,84 @@
             margin-top: 20px;
             padding: 0 10%;
         }
+
         button {
             padding: 15px 30px;
             font-size: 20px;
             cursor: pointer;
             border-radius: 8px;
-            background-color: #28a745;
-            color: white;
             border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s;
+            color: white;
+            background-color: #28a745;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
+
         button:hover {
-            background-color: #218838;
+            background-color: grey;
             transform: scale(1.05);
         }
+
+        a {
+            text-decoration: none;
+            color: white; /* normal color */
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:visited {
+            color: blue; /* visited link */
+        }
+
+        a:hover {
+            color: grey;
+        }
+
+        /* YouTube Button Row */
+        .yt-row {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Contact Section */
         .contact-section {
             margin-top: 30px;
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
         }
+
         .contact-section h2 {
             color: #28a745;
         }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-            font-size: 18px;
+
+        /* IP Copy section */
+        .ip-box {
+            margin-top: 25px;
+            background: #efefef;
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .copy-btn {
+            margin-top: 10px;
+            background: #007bff;
+        }
+
+        .copy-btn:hover {
+            background: grey;
         }
     </style>
 </head>
+
 <body>
+
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
     <p>Here Please! select a category to explore more:</p>
@@ -70,38 +116,48 @@
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
-    <!-- Search Bar -->
-    <div style="margin-top: 20px;">
-        <input type="text" id="searchInput" placeholder="Search here..." 
-            style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
-        <button onclick="searchFiles()">Search</button>
+    <!-- YouTube Row with Logos -->
+    <div class="yt-row">
+        <!-- LEFT YouTube Logo -->
+        <img src="youtube.png" width="70" alt="YouTube Logo">
+
+        <!-- Button -->
+        <button style="background:red;"
+            onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">
+            Visit My YouTube Channel
+        </button>
+
+        <!-- RIGHT Channel Logo -->
+        <img src="channel_logo.png" width="70" alt="My Channel Logo" style="border-radius:10px;">
     </div>
 
-    <!-- YouTube Button -->
-    <div style="margin-top: 25px;">
-        <button 
-        onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';" 
-        style="
-            padding: 15px 30px;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 8px;
-            background-color: red;
-            color: white;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s;
-        ">
-        📺 Visit My YouTube Channel
-        </button>
+    <!-- Search Bar -->
+    <div style="margin-top: 20px;">
+        <input type="text" id="searchInput" placeholder="Search here..."
+            style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+        <button onclick="searchFiles()">Search</button>
     </div>
 
     <!-- Contact Section -->
     <div class="contact-section">
         <h2>Contact Me for Helping ME TO MAKE more like this</h2>
         <p>If you have any questions or want to add something to this Website or page, feel free to reach out!</p>
-        <p>Email me at: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
+        <p>Email me at: 
+            <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a>
+        </p>
     </div>
+
+    <!-- EXTRA SERVER INFO -->
+    <div class="ip-box">
+        <h3>ADDITIONAL:</h3>
+        <p><b>MINECRAFT SERVER</b> (CRACKED | BEDROCK + JAVA)</p>
+        <p>🚧 Server Under Progress: <b>50%</b></p>
+
+        <p><b>IP:</b> ShardMC0.aternos.me:52067</p>
+
+        <button class="copy-btn" onclick="copyIP()">Copy Server IP</button>
+    </div>
+
 
     <script>
         function searchFiles() {
@@ -125,6 +181,12 @@
                 alert("Sorry, not found!");
             }
         }
+
+        function copyIP() {
+            navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
+            alert("IP Copied!");
+        }
     </script>
+
 </body>
 </html>
