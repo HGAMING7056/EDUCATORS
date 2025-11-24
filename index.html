@@ -133,46 +133,9 @@
         Made with ❤ by <strong>Herobrine Gaming</strong>
     </div>
 
-{
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        padding: 10px 20px;
-        background: #111;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        z-index: 9999;
-        transition: 0.3s;
-    }
-
-    #darkModeBtn:hover {
-        transform: scale(1.1);
-        background: #333;
-    }
-
-    /* Dark Mode */
-    .dark {
-        background: #0e0e0e;
-        color: white;
-    }
-
-    footer {
-        margin-top: 100px;
-        text-align: center;
-        padding: 20px;
-    }
-</style>
-
-</head>
-
-<body>
-
-<!-- 🔘 DARK MODE BUTTON -->
-<button id="darkModeBtn">Dark Mode</button>
-    </script>
+<!-- DARK MODE BUTTON --> <button id="modeBtn" onclick="toggleMode()">Dark Mode</button> <script> function copyIP() { navigator.clipboard.writeText("ShardMC0.aternos.me:52067"); alert("IP Copied!"); } function toggleMode() { document.body.classList.toggle("dark"); document.getElementById("modeBtn").innerText = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode"; } </script>
 
 </body>
 </html>
+
 
