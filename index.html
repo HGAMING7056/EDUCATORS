@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Website</title>
-
     <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --button-bg: #28a745;
+            --button-text: #ffffff;
+        }
+        body.dark {
+            --bg: #1a1a1a;
+            --text: #f1f1f1;
+            --button-bg: #444444;
+            --button-text: #ffffff;
+        }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 30px;
+            background: var(--bg);
+            background-size: cover;
+            color: var(--text);
         }
-
         h1 {
             color: #007bff;
         }
-
         p {
-            color: #333;
+            color: var(--text);
         }
-
         .buttons-container {
             display: flex;
             justify-content: space-between;
@@ -27,87 +38,59 @@
             margin-top: 20px;
             padding: 0 10%;
         }
-
         button {
             padding: 15px 30px;
             font-size: 20px;
             cursor: pointer;
             border-radius: 8px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
             border: none;
-            color: white;
-            background-color: #28a745;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
-
         button:hover {
-            background-color: grey;
-            transform: scale(1.05);
+            transform: scale(1.08);
+            background-color: #555555;
         }
 
-        a {
-            text-decoration: none;
-            color: white; /* normal color */
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        a:visited {
-            color: blue; /* visited link */
-        }
-
-        a:hover {
-            color: grey;
-        }
-
-        /* YouTube Button Row */
-        .yt-row {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            margin-top: 30px;
-            background-color: #f9f9f9;
+        /* ABOUT ME CARD */
+        .about-me {
+            margin: 40px auto;
+            width: 60%;
             padding: 20px;
-            border-radius: 5px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .contact-section h2 {
-            color: #28a745;
-        }
-
-        /* IP Copy section */
-        .ip-box {
-            margin-top: 25px;
-            background: #efefef;
+        /* Footer */
+        .footer {
+            margin-top: 40px;
             padding: 15px;
+            background: #e9ecef;
             border-radius: 10px;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .copy-btn {
-            margin-top: 10px;
-            background: #007bff;
-        }
-
-        .copy-btn:hover {
-            background: grey;
+        /* Dark mode button */
+        #modeBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            background: #000;
+            color: #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
         }
     </style>
 </head>
-
 <body>
 
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
-    <p>Here Please! select a category to explore more:</p>
 
     <!-- Buttons -->
     <div class="buttons-container">
@@ -116,75 +99,52 @@
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
-    <!-- YouTube Row with Logos -->
-    <div class="yt-row">
-        <!-- LEFT YouTube Logo -->
-        <img src="youtube.png" width="70" alt="YouTube Logo">
-
-        <!-- Button -->
-        <button style="background:red;"
-            onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">
+    <!-- YouTube Button WITHOUT EMOJI -->
+    <div style="margin-top: 25px; display:flex; justify-content:center; align-items:center; gap:20px;">
+        <img src="youtube.png" width="60" alt="YouTube Logo" style="border-radius:10px;">
+        <button onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">
             Visit My YouTube Channel
         </button>
-
-        <!-- RIGHT Channel Logo -->
-        <img src="channel_logo.png" width="70" alt="My Channel Logo" style="border-radius:10px;">
+        <img src="channel_logo.png" width="60" style="border-radius:10px;">
     </div>
 
-    <!-- Search Bar -->
-    <div style="margin-top: 20px;">
-        <input type="text" id="searchInput" placeholder="Search here..."
-            style="padding: 10px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
-        <button onclick="searchFiles()">Search</button>
+    <!-- ABOUT ME SECTION -->
+    <div class="about-me">
+        <h2>About Me</h2>
+        <p>I am <strong>Herobrine Gaming</strong>, a YouTuber who loves Minecraft, education, and creating helpful websites!</p>
+        <p>This website is made to help students explore Books, Cars, Bikes and more.</p>
     </div>
 
     <!-- Contact Section -->
     <div class="contact-section">
-        <h2>Contact Me for Helping ME TO MAKE more like this</h2>
-        <p>If you have any questions or want to add something to this Website or page, feel free to reach out!</p>
-        <p>Email me at: 
-            <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a>
-        </p>
-    </div>
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
 
-    <!-- EXTRA SERVER INFO -->
-    <div class="ip-box">
         <h3>ADDITIONAL:</h3>
-        <p><b>MINECRAFT SERVER</b> (CRACKED | BEDROCK + JAVA)</p>
-        <p>🚧 Server Under Progress: <b>50%</b></p>
-
-        <p><b>IP:</b> ShardMC0.aternos.me:52067</p>
-
-        <button class="copy-btn" onclick="copyIP()">Copy Server IP</button>
+        <p><strong>Minecraft Server (Cracked + Bedrock + Java)</strong></p>
+        <p>Progress: 50%</p>
+        <p>IP: <strong>ShardMC0.aternos.me:52067</strong></p>
+        <button onclick="copyIP()">Copy IP</button>
     </div>
 
+    <!-- Footer -->
+    <div class="footer">
+        Made with ❤ by <strong>Herobrine Gaming</strong>
+    </div>
+
+    <!-- DARK MODE BUTTON -->
+    <button id="modeBtn" onclick="toggleMode()">Dark Mode</button>
 
     <script>
-        function searchFiles() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const files = {
-                "books_and_author": ["author", "book", "novel", "poetry"],
-                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"],
-                "BIKES^SCOOTY": ["bike", "scooty", "ride", "wheels"]
-            };
-
-            let found = false;
-            for (const [file, keywords] of Object.entries(files)) {
-                if (keywords.includes(query)) {
-                    window.location.href = `${file}.html`;
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                alert("Sorry, not found!");
-            }
-        }
-
         function copyIP() {
             navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
             alert("IP Copied!");
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+            document.getElementById("modeBtn").innerText =
+                document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
         }
     </script>
 
