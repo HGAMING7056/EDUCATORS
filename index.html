@@ -4,40 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Website</title>
+
     <style>
+        /* THEME COLORS */
         :root {
             --bg: #ffffff;
             --text: #000000;
             --button-bg: #28a745;
             --button-text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --footer-bg: #e9ecef;
         }
+
         body.dark {
-            --bg: #1a1a1a;
+            --bg: #121212;
             --text: #f1f1f1;
-            --button-bg: #444444;
+            --button-bg: #333333;
             --button-text: #ffffff;
+            --card-bg: rgba(40, 40, 40, 0.8);
+            --footer-bg: #1f1f1f;
         }
+
+        /* BASIC PAGE STYLE */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 30px;
             background: var(--bg);
-            background-size: cover;
             color: var(--text);
         }
+
         h1 {
             color: #007bff;
         }
-        p {
-            color: var(--text);
-        }
-        .buttons-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding: 0 10%;
-        }
+
         button {
             padding: 15px 30px;
             font-size: 20px;
@@ -46,55 +46,54 @@
             background-color: var(--button-bg);
             color: var(--button-text);
             border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
+
         button:hover {
             transform: scale(1.08);
-            background-color: #555555;
+            background-color: #555;
         }
-<div style="margin-top: 40px; display:flex; justify-content:center;">
-    <button onclick="window.location.href='DarkMode.html';"
-        style="
-            padding: 15px 35px;
-            font-size: 22px;
-            cursor: pointer;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-        ">
-        DARK MODE 🌙
-    </button>
-</div>
 
-        /* ABOUT ME CARD */
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            margin-top: 20px;
+        }
+
         .about-me {
-            margin-top: 200px;
-            margin: 40px auto;
+            margin: 50px auto;
             width: 60%;
             padding: 20px;
-            background: rgba(255,255,255,0.8);
+            background: var(--card-bg);
             border-radius: 15px;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
         .footer {
             margin-top: 40px;
             padding: 15px;
-            background: #e9ecef;
+            background: var(--footer-bg);
             border-radius: 10px;
         }
-<button id="darkModeToggle">Dark Mode 🌙</button>
+
+        #darkModeToggle {
+            margin-top: 30px;
+            background: #000;
+            color: #fff;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
+
+    <!-- DARK MODE BUTTON -->
+    <button id="darkModeToggle">Dark Mode 🌙</button>
 
     <!-- Buttons -->
     <div class="buttons-container">
@@ -103,24 +102,22 @@
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
-    <!-- YouTube Button WITHOUT EMOJI -->
+    <!-- YouTube -->
     <div style="margin-top: 25px; display:flex; justify-content:center; align-items:center; gap:20px;">
-        <img src="youtube.png.png" width="60" alt="YouTube Logo" style="border-radius:10px;">
-        <button onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">
-            Visit My YouTube Channel
-        </button>
+        <img src="youtube.png.png" width="60" style="border-radius:10px;">
+        <button onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">Visit My YouTube Channel</button>
         <img src="channel_logo.png.png" width="60" style="border-radius:10px;">
     </div>
 
-    <!-- ABOUT ME SECTION -->
-    <div class="about-me" style="margin-top:350px;">
+    <!-- ABOUT ME -->
+    <div class="about-me">
         <h2>About Me</h2>
-        <p>I am <strong>Herobrine Gaming</strong>, a YouTuber who loves Minecraft, education, and creating helpful websites!</p>
-        <p>This website is made to help students explore Books, Cars, Bikes and more.</p>
+        <p>I am <strong>Herobrine Gaming</strong>, a YouTuber who loves Minecraft and education!</p>
+        <p>This website helps students explore Books, Cars, Bikes and more.</p>
     </div>
 
     <!-- Contact Section -->
-    <div class="contact-section" style="margin-top:250px;">
+    <div class="contact-section" style="margin-top:150px;">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:itsflantic@gmail.com">itsflantic@gmail.com</a></p>
 
@@ -131,15 +128,29 @@
         <button onclick="copyIP()">Copy IP</button>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
         Made with ❤ by <strong>Herobrine Gaming</strong>
+    </div>
 
-</script>
+    <!-- JAVASCRIPT -->
+    <script>
+        // COPY IP FUNCTION
+        function copyIP() {
+            navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
+            alert("IP Copied!");
+        }
+
+        // DARK MODE FUNCTION
+        document.getElementById("darkModeToggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+                this.innerText = "Light Mode ☀️";
+            } else {
+                this.innerText = "Dark Mode 🌙";
+            }
+        });
+    </script>
+
 </body>
 </html>
-
-
-
-
-
