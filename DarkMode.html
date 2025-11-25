@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+
+            /* NEW BACKGROUND (Black → Grey smooth gradient) */
+            background: linear-gradient(180deg, #000000, #2e2e2e, #4a4a4a);
+            color: white;  /* Text will be white now */
+        }
+
+        h1 { color: #4da3ff; }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            background-color: #444;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background-color: #666;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            margin-top: 20px;
+        }
+
+        .about-me {
+            margin: 50px auto;
+            width: 60%;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hello! Welcome to My Website</h1>
+    <p>This is an Educational Website</p>
+
+    <div class="buttons-container">
+        <button onclick="window.location.href='books_and_author.html';">Books & Authors</button>
+        <button onclick="window.location.href='BIKES^SCOOTY.HTML';">Bikes & Scooty</button>
+        <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
+    </div>
+
+    <div style="margin-top: 25px; display:flex; justify-content:center; align-items:center; gap:20px;">
+        <img src="youtube.png.png" width="60" style="border-radius:10px;">
+        <button onclick="window.location.href='https://www.youtube.com/@herobrinegaming7056';">
+            Visit My YouTube Channel
+        </button>
+        <img src="channel_logo.png.png" width="60" style="border-radius:10px;">
+    </div>
+
+    <div class="about-me">
+        <h2>About Me</h2>
+        <p>I am <strong>Herobrine Gaming</strong>, a YouTuber who loves Minecraft, education, and creating helpful websites!</p>
+        <p>This website is made with the help of ChatGPT.</p>
+    </div>
+
+    <div class="contact-section" style="margin-top:150px;">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:itsflantic@gmail.com" style="color:#4da3ff;">itsflantic@gmail.com</a></p>
+
+        <h3>ADDITIONAL:</h3>
+        <p><strong>Minecraft Server (Cracked + Bedrock + Java)</strong></p>
+        <p>Progress: 50%</p>
+        <p>IP: <strong>ShardMC0.aternos.me:52067</strong></p>
+        <button onclick="copyIP()">Copy IP</button>
+    </div>
+
+    <div class="footer">
+        Made with ❤ by <strong>Herobrine Gaming (With ChatGPT)</strong>
+    </div>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
+            alert("IP Copied!");
+        }
+    </script>
+
+</body>
+</html>
