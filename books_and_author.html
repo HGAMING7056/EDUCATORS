@@ -9,28 +9,63 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
         }
+
+        /* Dark Mode Style */
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
         .author {
             font-weight: bold;
-            color: #333333;
+            color: inherit;
             font-size: 24px;
             margin-top: 20px;
         }
+
         .books {
             margin-left: 20px;
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin: 10px 0;
             font-size: 16px;
+        }
+
+        /* Back button */
+        .back-button {
+            margin-bottom: 20px;
+        }
+
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <h1>Books & Authors</h1>
+
     <button class="back-button" onclick="window.location.href='index.html';">⬅ Back to Home</button>
-    
+
+    <!-- DARK MODE BUTTON -->
+    <button id="darkModeToggle">Dark Mode 🌙</button>
+
     <div class="author">George R.R. Martin</div>
     <ul class="books">
         <li>A Game of Thrones</li>
@@ -61,7 +96,7 @@
         <li>Roughing It</li>
         <li>A Connecticut Yankee in King Arthur's Court</li>
     </ul>
-    
+
     <div class="author">Rabindranath Tagore</div>
     <ul class="books">
         <li>Gitanjali</li>
@@ -73,7 +108,7 @@
         <li>Shesher Kabita</li>
         <li>The Gardener</li>
     </ul>
-    
+
     <div class="author">APJ Abdul Kalam</div>
     <ul class="books">
         <li>Wings of Fire</li>
@@ -85,7 +120,7 @@
         <li>Inspiring Thoughts</li>
         <li>Transcendence</li>
     </ul>
-    
+
     <div class="author">Chanakya (Kautilya)</div>
     <ul class="books">
         <li>Arthashastra</li>
@@ -98,7 +133,7 @@
         <li>Chanakya in Daily Life</li>
     </ul>
 
-        <div class="author">William Shakespeare</div>
+    <div class="author">William Shakespeare</div>
     <ul class="books">
         <li>Hamlet</li>
         <li>Romeo and Juliet</li>
@@ -127,30 +162,11 @@
     </ul>
 
     <script>
-        function searchFiles() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const files = {
-                "books_and_author": ["author", "book", "novel", "poetry"], // Keywords related to books_and_author.html
-                "CAR&MAKERS": ["car", "maker", "vehicle", "engine"], // Keywords related to CAR&MAKERS.html
-                "another_file": ["keyword1", "keyword2", "keyword3"] // Add another file and its keywords
-            };
-
-            let found = false;
-            for (const [file, keywords] of Object.entries(files)) {
-                if (keywords.includes(query)) {
-                    window.location.href = `${file}.html`;
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                alert("Sorry, not found!");
-            }
-        }
+        // Dark Mode Toggle
+        document.getElementById("darkModeToggle").onclick = function () {
+            document.body.classList.toggle("dark");
+        };
     </script>
+
 </body>
 </html>
-
-
-
