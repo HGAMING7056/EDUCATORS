@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,12 +10,21 @@
             margin: 20px;
             background-color: #f8f9fa;
             color: #333;
+            transition: all 0.3s ease;
         }
+
+        /* DARK MODE */
+        body.dark {
+            background-color: #121212;
+            color: white;
+        }
+
         h1 {
             color: #007BFF;
             text-align: center;
             margin-bottom: 20px;
         }
+
         .bike-list {
             max-width: 800px;
             margin: 0 auto;
@@ -24,19 +33,33 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
+
+        body.dark .bike-list {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+        }
+
         .bike-category {
             font-size: 18px;
             color: #007BFF;
             margin-top: 20px;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             padding: 5px 0;
             border-bottom: 1px solid #ddd;
         }
+
+        body.dark li {
+            border-bottom: 1px solid #555;
+        }
+
+        /* HOME BUTTON */
         .home-button {
             display: block;
             text-align: center;
@@ -51,17 +74,38 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
+
         .home-button:hover {
             background-color: #218838;
+        }
+
+        /* DARK MODE BUTTON */
+        #darkModeToggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Dark Mode Button -->
+    <button id="darkModeToggle">Dark Mode 🌙</button>
+
     <!-- Home Button at the Top -->
     <a href="index.html" class="home-button">🏠 Back to Home</a>
 
     <h1>All Bikes & Scooty in the World</h1>
+
     <div class="bike-list">
+
         <h2 class="bike-category">Sports Bikes:</h2>
         <ul>
             <li>Kawasaki Ninja Z900 - Kawasaki</li>
@@ -73,7 +117,7 @@
             <li>Suzuki GSX-R1000 - Suzuki</li>
             <li>Ducati Panigale V4 - Ducati</li>
             <li>Honda CBR1000RR - Honda</li>
-            <li>David Putra 2000CC Engine - Oggy And The Chocroach</li>
+            <li>David Putra 2000CC Engine - Oggy And The Cockroach</li>
         </ul>
 
         <h2 class="bike-category">Cruiser Bikes:</h2>
@@ -120,9 +164,17 @@
             <li>Revolt RV400 - Revolt Motors</li>
             <li>Bajaj Chetak Electric - Bajaj Auto</li>
         </ul>
+
     </div>
 
     <!-- Home Button at the Bottom -->
     <a href="index.html" class="home-button">🏠 Back to Home</a>
+
+    <script>
+        document.getElementById("darkModeToggle").onclick = function () {
+            document.body.classList.toggle("dark");
+        };
+    </script>
+
 </body>
 </html>
