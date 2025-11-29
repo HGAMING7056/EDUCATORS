@@ -32,6 +32,7 @@
             margin: 30px;
             background: var(--bg);
             color: var(--text);
+            transition: background 0.3s;
         }
 
         h1 {
@@ -53,6 +54,30 @@
         button:hover {
             transform: scale(1.08);
             background-color: #555;
+        }
+
+        /* FIXED BUTTONS */
+        #darkModeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            z-index: 9999;
+        }
+
+        #itachiBtn {
+            position: fixed;
+            top: 20px;
+            right: 180px;
+            background: black;
+            color: white;
+            padding: 12px 22px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
         }
 
         .buttons-container {
@@ -78,12 +103,6 @@
             background: var(--footer-bg);
             border-radius: 10px;
         }
-
-        #darkModeToggle {
-            margin-top: 30px;
-            background: #000;
-            color: #fff;
-        }
     </style>
 </head>
 
@@ -91,6 +110,9 @@
 
     <h1>Hello! Welcome to My Website</h1>
     <p>This is an Educational Website</p>
+
+    <!-- ITACHI BACKGROUND BUTTON -->
+    <button id="itachiBtn">Itachi Mode 🔥</button>
 
     <!-- DARK MODE BUTTON -->
     <button id="darkModeToggle">Dark Mode 🌙</button>
@@ -140,7 +162,7 @@
             alert("IP Copied!");
         }
 
-        // DARK MODE FUNCTION
+        // DARK MODE
         document.getElementById("darkModeToggle").addEventListener("click", function () {
             document.body.classList.toggle("dark");
 
@@ -149,6 +171,14 @@
             } else {
                 this.innerText = "Dark Mode 🌙";
             }
+        });
+
+        // ITACHI BACKGROUND MODE
+        document.getElementById("itachiBtn").addEventListener("click", function () {
+            document.body.style.backgroundImage = "url('itachi.jpg.png')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundRepeat = "no-repeat";
         });
     </script>
 
