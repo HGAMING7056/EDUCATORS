@@ -181,6 +181,76 @@
             document.body.style.backgroundRepeat = "no-repeat";
         });
     </script>
+    <!-- AI Button -->
+<button id="aiBtn" style="
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: black;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+">🤖 AI Chat</button>
+
+<!-- AI Chat Box -->
+<div id="aiBox" style="
+    display:none;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 320px;
+    height: 420px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+">
+    <div id="chatOutput" style="
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 5px;
+    "></div>
+
+    <input id="userInput" type="text" style="
+        width: 90%;
+        padding: 10px;
+        margin-top: 10px;
+    " placeholder="Ask something...">
+
+    <button onclick="askAI()" style="
+        margin-top: 10px;
+        padding: 10px 20px;
+    ">Send</button>
+</div>
+
+<script>
+document.getElementById("aiBtn").onclick = () => {
+    const box = document.getElementById("aiBox");
+    box.style.display = box.style.display === "none" ? "block" : "none";
+};
+
+async function askAI() {
+    let question = document.getElementById("userInput").value;
+    if (!question) return;
+
+    document.getElementById("chatOutput").innerHTML += "<p><b>You:</b> " + question + "</p>";
+
+    let response = await fetch("ai.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+    });
+
+    let data = await response.json();
+    let answer = data.choices?.[0]?.message?.content || "No response";
+
+    document.getElementById("chatOutput").innerHTML += "<p><b>AI:</b> " + answer + "</p>";
+}
+</script>
+
 
 </body>
 </html>
+
