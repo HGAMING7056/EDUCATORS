@@ -237,7 +237,7 @@ async function askAI() {
 
     document.getElementById("chatOutput").innerHTML += "<p><b>You:</b> " + question + "</p>";
 
-    let response = await fetch("ai.php", {
+    let response = await fetch("Ai.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question })
@@ -253,4 +253,5 @@ async function askAI() {
 
 </body>
 </html>
+
 
