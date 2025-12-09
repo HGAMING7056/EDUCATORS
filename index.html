@@ -25,7 +25,6 @@
             --footer-bg: #1f1f1f;
         }
 
-        /* BASIC PAGE STYLE */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -35,9 +34,7 @@
             transition: background 0.3s;
         }
 
-        h1 {
-            color: #007bff;
-        }
+        h1 { color: #007bff; }
 
         button {
             padding: 15px 30px;
@@ -75,8 +72,6 @@
             padding: 12px 22px;
             font-size: 18px;
             border-radius: 8px;
-            border: none;
-            cursor: pointer;
             z-index: 9999;
         }
 
@@ -94,7 +89,6 @@
             background: var(--card-bg);
             border-radius: 15px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .footer {
@@ -124,12 +118,10 @@
         <button onclick="window.location.href='CAR&MAKERS.html';">Cars & Makers</button>
     </div>
 
-    
-
     <!-- ABOUT ME -->
     <div class="about-me">
         <h2>About Website</h2>
-        <p> This Website is create with ❤️ from the help of <strong>ChatGPT </strong>,and Me ofcourse</p>
+        <p>This Website is created with ❤️ using <strong>ChatGPT</strong> and me!</p>
         <p>This website helps students explore Books, Cars, Bikes and more.</p>
     </div>
 
@@ -151,31 +143,24 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // COPY IP FUNCTION
         function copyIP() {
             navigator.clipboard.writeText("ShardMC0.aternos.me:52067");
             alert("IP Copied!");
         }
 
-        // DARK MODE
-        document.getElementById("darkModeToggle").addEventListener("click", function () {
+        document.getElementById("darkModeToggle").onclick = function () {
             document.body.classList.toggle("dark");
+            this.innerText = document.body.classList.contains("dark")
+                ? "Light Mode ☀️"
+                : "Dark Mode 🌙";
+        };
 
-            if (document.body.classList.contains("dark")) {
-                this.innerText = "Light Mode ☀️";
-            } else {
-                this.innerText = "Dark Mode 🌙";
-            }
-        });
-
-        // ITACHI BACKGROUND MODE
-        document.getElementById("itachiBtn").addEventListener("click", function () {
+        document.getElementById("itachiBtn").onclick = function () {
             document.body.style.backgroundImage = "url('itachi.jpg.png')";
             document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundPosition = "center";
-            document.body.style.backgroundRepeat = "no-repeat";
-        });
+        };
     </script>
+
     <!-- AI Button -->
 <button id="aiBtn" style="
     position: fixed;
@@ -206,6 +191,7 @@
         overflow-y: auto;
         border: 1px solid #ccc;
         padding: 5px;
+        font-size: 14px;
     "></div>
 
     <input id="userInput" type="text" style="
@@ -232,22 +218,18 @@ async function askAI() {
 
     document.getElementById("chatOutput").innerHTML += "<p><b>You:</b> " + question + "</p>";
 
-    let response = await fetch("Ai.php", {
+    let response = await fetch("https://herogpt-api.vercel.app/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question })
+        body: JSON.stringify({ prompt: question })
     });
 
     let data = await response.json();
-    let answer = data.choices?.[0]?.message?.content || "No response";
+    let answer = data.reply || "No response";
 
     document.getElementById("chatOutput").innerHTML += "<p><b>AI:</b> " + answer + "</p>";
 }
 </script>
 
-
 </body>
 </html>
-
-
-
